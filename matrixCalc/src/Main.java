@@ -112,7 +112,6 @@ public class Main {
         if (matrix1.length == matrix2[0].length) {
 
         }
-
         return matrix3;
     }
     /* Determinant 2x2-->  nomes funciona per matrius quadra 2x2
@@ -121,13 +120,61 @@ public class Main {
     *  det = a*d - b*c
     * */
 
-    public static int determinant(int[][] matrix){
+    public static int determinant2x2(int[][] matrix){
 
         int determinant = 0 ;
-        if()
+        if(matrix.length == 2 && matrix[0].length == 2){
+            determinant = matrix[0][0]*matrix[1][1] - matrix[0][1]*matrix[1][0];
+        }
         return determinant;
     }
+    /* adjunta de una posisicio A={a,b,
+                                   c,d} adj(0,0)  3x3*/
 
+    public static int adj(int F,int C, int [][]matrix){
+        int adjunta = 0;
+        if(matrix.length == 3 && matrix[0].length == 3){
+            int [] llistamatriu = new int[4];//[a,b,c,d] 2x2
+            int iLlista = 0;
+            int rows = matrix.length;
+            int columns = matrix[0].length;
+
+            for (int row = 0; row < rows; row++) {
+                for (int col = 0; col < columns; col++) {
+                    if(row!=F && col!=C){
+                        llistamatriu[iLlista]=matrix[row][col];
+                        iLlista++;
+                    }
+                }
+            }
+            adjunta=llistamatriu[0]*llistamatriu[3] - llistamatriu[1]*llistamatriu[2];
+            /*
+            int [][] matrix2x2= new int[2][2];
+            /*
+            maxtrix2x2[0][0] = llistamatriu[0]
+            .
+            .
+            .
+            matrix2x2[1][1] = llistamatriu[4]
+            iLlista = 0;
+            for (int row = 0; row < 2; row++)
+                for (int col = 0; col < 2; col++) {
+                    matrix2x2[row][col] = llistamatriu[iLlista];
+                    iLlista++;
+                }
+            */
+
+        }
+        return adjunta ;
+    }
+
+    /* determinant 3x3
+    *
+    *
+    * */
+    public static int determinant3x3(){
+
+    }
 
     public static void main(String[] args) {
         String clase = "Jodidos";

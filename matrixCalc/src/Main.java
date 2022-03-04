@@ -105,20 +105,25 @@ public class Main {
      */
 
 
-
-    public static int[][] multMatrix(int[][] matrix1, int[][] matrix2){
+    public static int[][] multMatrix(int[][] matrix1, int[][] matrix2) {
         int[][] matrix3 = new int[matrix1[0].length][matrix2.length];
 
-        if (matrix1.length == matrix2[0].length) {
-
+        if (matrix1[0].length == matrix2.length) {
+            for (int k = 0; k < matrix1[0].length; k++) {
+                for (int j = 0; j < matrix2.length; j++) {
+                    for (int p = 0; p < matrix1.length; p++) {
+                        matrix3[k][j] += matrix1[p][k] * matrix2[j][p];
+                    }
+                }
+            }
         }
         return matrix3;
     }
     /* Determinant 2x2-->  nomes funciona per matrius quadra 2x2
-    *  A={a b
-    *     c d}
-    *  det = a*d - b*c
-    * */
+     *  A={a b
+     *     c d}
+     *  det = a*d - b*c
+     * */
 
     public static int determinant2x2(int[][] matrix){
 
@@ -169,26 +174,37 @@ public class Main {
     }
 
     /* determinant 3x3
-    *
-    *
+    *  signes = ( + - +
+    *             - + -
+    *             + - +)
+    *  determinant = suma(adj(i,j)*a(i,j)*signe)
     * */
-    public static int determinant3x3(){
+    public static int determinant3x3(int[][] matrix){
+        int determinant = 0;
+        if(matrix.length == 3 && matrix[0].length == 3){
+            // aqui ja es cosa vostra
 
+
+
+
+        }
+        return determinant;
     }
 
     public static void main(String[] args) {
         String clase = "Jodidos";
         System.out.println(clase);
 
-        int [][] A = {{1,2,3},{4,3,1}, {1,0,1}};
-        int [][] A2 = {{0,2,5},{2,3,1}, {4,1,2}};
+        int [][] A = {{1,2},{4,3},{1,15}};
+        int [][] A2 = {{0,1,5},{2,3,1}};
         int [][] B = {{3,1},{1,0}};
         int [][] C = {{3}};
         int [][] D = {{1},{2},{3}};
 
-        System.out.println(Arrays.deepToString(sumar(A, A2)));
+        // System.out.println(Arrays.deepToString(sumar(A, A2)));
 
-        printMatrix(A);
+        printMatrix(multMatrix(A,A2));
+        // printMatrix(A);
         //Farem matrius de fins a 3x3--> Exemples: 2x2 3x2 3x1...2x1;
         /*
         - nomenclatura; matriu A B C .
